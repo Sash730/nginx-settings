@@ -2,41 +2,44 @@ version: '2'
 
 services:
   nginx-proxy:
-    image: jwilder/nginx-proxy
-    container_name: nginx-proxy
+    container_name: nginx
+    image: nginx:latest
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
     networks:
-      reverse-proxy:
-        aliases:
-          - proxy.local
+      - reverse-proxy
+    links:
+      - api:api
+      - data:data
     ports:
       - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
       
   api:
     build: .
     container_name: api
+    networks:
+      - reverse-proxy
     ports:
       - "9000:9000"
     volumes:
       - ./server:/app/server
     command: bash -c "cd server && node api/app.js"
-    environment:
-      - VIRTUAL_HOST=api.local
 
   data:
     build: .
     container_name: data
+    networks:
+      - reverse-proxy
     ports:
-     - "8080:8080"
+      - "9090:9090"
     volumes:
       - ./server:/app/server
     command: bash -c "cd server && node data/app.js"
-    environment:
-      - VIRTUAL_HOST=data.local
 
 volumes:
   server:
 
 networks:
   reverse-proxy:
+    driver: bridge
