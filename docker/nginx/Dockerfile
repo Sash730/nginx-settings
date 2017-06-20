@@ -12,7 +12,7 @@ COPY ./docker/nginx/entrypoint.sh /etc/nginx/
 
 RUN chmod +x /etc/nginx/entrypoint.sh
 
-ENTRYPOINT ["/etc/nginx/entrypoint.sh", "${API_HOST}", "${DATA_HOST}"]
+ENTRYPOINT ["/etc/nginx/entrypoint.sh"]
 
 # Append "daemon off;" to the beginning of the configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
