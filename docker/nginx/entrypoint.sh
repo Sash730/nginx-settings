@@ -1,5 +1,8 @@
 #!/bin/bash
 
-echo "ENV Var Passed in: ${DATA_HOST}, $API_HOST"
+api_str='{{ API_HOST }}'
+data_str='{{ DATA_HOST }}'
 
-sed -e 's/{{ DATA_HOST }}/${DATA_HOST}/; s/{{ API_HOST }}/${API_HOST}/' /etc/nginx/nginx.conf
+sed -i "s~$api_str~$API_HOST~;s~$data_str~$DATA_HOST~" /etc/nginx/nginx.conf
+
+service nginx start
