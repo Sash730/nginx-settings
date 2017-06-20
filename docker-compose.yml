@@ -6,6 +6,9 @@ services:
     build:
       context: .
       dockerfile: ./docker/nginx/Dockerfile
+    environment:
+      - API_HOST=http://api:9000
+      - DATA_HOST=http://data:9090
     networks:
       - reverse-proxy
     links:

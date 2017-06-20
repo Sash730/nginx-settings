@@ -1,7 +1,5 @@
 FROM nginx:1.13.1
 
-ENV API_HOST http://api:9000
-ENV DATA_HOST http://data:9090
 # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
 
