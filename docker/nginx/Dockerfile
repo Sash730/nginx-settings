@@ -8,9 +8,9 @@ RUN rm -v /etc/nginx/nginx.conf
 # Copy a configuration file from the current directory
 ADD ./docker/nginx/nginx.conf /etc/nginx/
 #
-#COPY ./docker/nginx/entrypoint.sh /etc/nginx/
+COPY ./docker/nginx/entrypoint.sh /etc/nginx/
 
-#RUN chmod +x /etc/nginx/entrypoint.sh
+RUN chmod +x /etc/nginx/entrypoint.sh
 
 ENTRYPOINT ["/etc/nginx/entrypoint.sh", "${API_HOST}", "${DATA_HOST}"]
 
