@@ -2,8 +2,7 @@ version: '2'
 
 services:
   nginx-proxy:
-    container_name: nginx
-    image: nginx:latest
+    container_name: nginx-proxy
     build:
       context: .
       dockerfile: ./docker/nginx/Dockerfile

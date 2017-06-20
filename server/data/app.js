@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
-app.get('/getData', function(req, res) {
+app.get('/', function(req, res) {
   res.send('<h1>Hello with your Data!</h1>');
 });
 

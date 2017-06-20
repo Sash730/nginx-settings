@@ -28,9 +28,21 @@ app.use(methodOverride());
 
 app.get('/getApi', function (req, res) {
 console.log('api');
-  return makeGetRequest("http://192.168.1.145:80/getData")
+  return makeGetRequest("http://192.168.1.145:80")
     .then(data => {
-      console.log(data);
+      return res.send(data);
+    })
+    .catch(error => {
+      console.log(error);
+      return res.end();
+    });
+
+});
+
+app.get('/download', function (req, res) {
+  console.log('api');
+  return makeGetRequest("http://192.168.1.145:80")
+    .then(data => {
       return res.send(data);
     })
     .catch(error => {
