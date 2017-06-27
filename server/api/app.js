@@ -20,16 +20,14 @@ var server = http.createServer(app);
 app.set('appPath', '/');
 app.use(express.static(app.get('appPath')));
 app.use(morgan('dev'));
-//app.set('views', config.root   '/server/views');
-//app.set('view engine', 'jade');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
 app.get('/getApi', function (req, res) {
-console.log('api');
-  return makeGetRequest("http://------yourIp----------:80")
+  return makeGetRequest("http://-----------------------------yourIp---------------------------:80")
     .then(data => {
+      data = '<h1>' + data.replace('<h1>', '').replace('!</h1>', '') + ' across Api!!!</h1>';
       return res.send(data);
     })
     .catch(error => {
@@ -41,8 +39,9 @@ console.log('api');
 
 app.get('/download', function (req, res) {
   console.log('api');
-  return makeGetRequest("http://192.168.1.145:80")
+  return makeGetRequest("http://-----------------------------yourIp---------------------------:80")
     .then(data => {
+      data = '<h1>' + data.replace('<h1>', '').replace('!</h1>', '') + ' across Api and download route!!!</h1>';
       return res.send(data);
     })
     .catch(error => {

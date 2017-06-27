@@ -16,6 +16,6 @@
 
 2. Replace in server/api/app.js string 'yourIp' your own IP
 
-3. Run `npm run docker` to start the docker container with nginx and two servers.
+3. Run `docker-compose up -d` to start the docker container with nginx and two servers.
 
 

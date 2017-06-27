@@ -19,8 +19,6 @@ var server = http.createServer(app);
 app.set('appPath',  '/');
 app.use(express.static(app.get('appPath')));
 app.use(morgan('dev'));
-//app.set('views', config.root + '/server/views');
-//app.set('view engine', 'jade');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride());
@@ -37,6 +35,3 @@ function startServer() {
 }
 
 setImmediate(startServer);
-
-// Expose app
-//exports = module.exports = app;

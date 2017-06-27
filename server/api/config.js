@@ -4,9 +4,6 @@ var path = require('path');
 module.exports = {
   domain:'http://localhost:9000',
 
-  // Root path of server
-  //root: path.normalize(__dirname + '/../../..'),
-
   // Server port
   port: 9000,
 

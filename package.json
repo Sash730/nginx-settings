@@ -14,8 +14,5 @@
   "devDependencies": {},
   "engines": {
     "node": ">=5.2"
-  },
-  "scripts": {
-    "docker": "docker-compose -f docker-compose.yml build && docker-compose -f docker-compose.yml up -d"
   }
 }
