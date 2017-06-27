@@ -28,7 +28,7 @@ app.use(methodOverride());
 
 app.get('/getApi', function (req, res) {
 console.log('api');
-  return makeGetRequest("http://192.168.1.145:80")
+  return makeGetRequest("http://------yourIp----------:80")
     .then(data => {
       return res.send(data);
     })
