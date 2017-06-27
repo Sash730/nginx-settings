@@ -8,7 +8,7 @@
 
 - [Git](https://git-scm.com/)
 - [Node.js and npm](nodejs.org) Node ^6.10.0, npm ^3.14.7
-- [Docker and docker-compose] (https://docs.docker.com)
+- [Docker and docker-compose](https://docs.docker.com)
 
 ### Developing
 
